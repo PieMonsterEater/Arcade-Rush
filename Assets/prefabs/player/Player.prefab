@@ -549,8 +549,13 @@ GameObject:
   - component: {fileID: 8630082368868805944}
   - component: {fileID: 6479694009124340291}
   - component: {fileID: -4477029003425194495}
+<<<<<<< HEAD
+  - component: {fileID: 8927901623867464594}
+  m_Layer: 0
+=======
   - component: {fileID: -1453306331426750938}
   m_Layer: 2
+>>>>>>> c4450658fee91411f33bed4ec42d852534bab356
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +572,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1909, z: 0}
-  m_LocalScale: {x: 1, y: 1.3818, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3089519328223473026}
@@ -620,12 +625,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
+  m_Sprite: {fileID: -463519250959371515, guid: 76b4fb67f63d5d94ca797b848deca60c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+=======
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.38124847, b: 1, a: 1}
+>>>>>>> c4450658fee91411f33bed4ec42d852534bab356
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.14, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -742,14 +752,35 @@ MonoBehaviour:
   m_DefaultActionMap: Basic
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+<<<<<<< HEAD
+--- !u!95 &8927901623867464594
+Animator:
+  serializedVersion: 7
+=======
 --- !u!61 &-1453306331426750938
 BoxCollider2D:
+>>>>>>> c4450658fee91411f33bed4ec42d852534bab356
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7505896593037992095}
   m_Enabled: 1
+<<<<<<< HEAD
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: edfc390f6f93ef847b88b6bc91b4fdd9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+=======
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -788,3 +819,4 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+>>>>>>> c4450658fee91411f33bed4ec42d852534bab356
