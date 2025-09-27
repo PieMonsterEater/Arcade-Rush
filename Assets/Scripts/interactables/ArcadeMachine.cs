@@ -7,7 +7,7 @@ public class ArcadeMachine : MonoBehaviour
 
     void Awake()
     {
-        if(Random.Range(0, 2) == 1) {
+        if(true) {
             Debug.Log("I am a broken Arcade Machine!");
             brokenLevel = 5;
             brokenIndicator.SetActive(true);
