@@ -549,13 +549,8 @@ GameObject:
   - component: {fileID: 8630082368868805944}
   - component: {fileID: 6479694009124340291}
   - component: {fileID: -4477029003425194495}
-<<<<<<< HEAD
   - component: {fileID: 8927901623867464594}
   m_Layer: 0
-=======
-  - component: {fileID: -1453306331426750938}
-  m_Layer: 2
->>>>>>> c4450658fee91411f33bed4ec42d852534bab356
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +567,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1909, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3089519328223473026}
@@ -625,13 +620,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_Sprite: {fileID: -463519250959371515, guid: 76b4fb67f63d5d94ca797b848deca60c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-=======
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.38124847, b: 1, a: 1}
->>>>>>> c4450658fee91411f33bed4ec42d852534bab356
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -687,9 +677,6 @@ MonoBehaviour:
   - {fileID: 5074528854201718679}
   - {fileID: 3116550940141782670}
   - {fileID: 517548980417192655}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &-4477029003425194495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,21 +739,15 @@ MonoBehaviour:
   m_DefaultActionMap: Basic
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
-<<<<<<< HEAD
 --- !u!95 &8927901623867464594
 Animator:
   serializedVersion: 7
-=======
---- !u!61 &-1453306331426750938
-BoxCollider2D:
->>>>>>> c4450658fee91411f33bed4ec42d852534bab356
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7505896593037992095}
   m_Enabled: 1
-<<<<<<< HEAD
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: edfc390f6f93ef847b88b6bc91b4fdd9, type: 2}
   m_CullingMode: 0
@@ -780,43 +761,3 @@ BoxCollider2D:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-=======
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
->>>>>>> c4450658fee91411f33bed4ec42d852534bab356

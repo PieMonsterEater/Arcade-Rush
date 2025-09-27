@@ -15,17 +15,12 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-<<<<<<< HEAD
       animator = GetComponent<Animator>();
-=======
-
->>>>>>> c4450658fee91411f33bed4ec42d852534bab356
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-<<<<<<< HEAD
         animator.SetBool("Moving", isMoving);
         if (((moveDir.x <= 0.01f && moveDir.x >= -0.01f) || (moveDir.x >= 0.01f && moveDir.x <= -0.01f)) && (moveDir.y <= 0.01f && moveDir.y >= -0.01f) || (moveDir.y >= 0.01f && moveDir.y <= -0.01f))
         {
@@ -34,11 +29,9 @@ public class Player : MonoBehaviour
         else {
             isMoving = true;
         }
-            rb.linearVelocity = moveDir * moveSpeed;
-=======
+       
         // Moves the player in the direction they are pressing the keys
         rb.linearVelocity = moveDir * moveSpeed;
->>>>>>> c4450658fee91411f33bed4ec42d852534bab356
     }
 
     // Reads the move input from the PlayerControls input actions
