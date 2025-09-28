@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         isOver = true;
         isEnding = true;

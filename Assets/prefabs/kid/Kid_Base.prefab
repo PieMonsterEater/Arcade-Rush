@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   rb: {fileID: 4582053394185545972}
+  sp: {fileID: 7602944329365841737}
+  canKillPlayer: 0
   startPos: {x: 0, y: 0}
 --- !u!1 &8473175787910545612
 GameObject:

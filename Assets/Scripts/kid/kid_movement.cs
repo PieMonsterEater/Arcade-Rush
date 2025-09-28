@@ -5,6 +5,10 @@ public class kid_movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 6;
     [SerializeField] private Rigidbody2D rb = null;
+    [SerializeField] private SpriteRenderer sp;
+
+    [SerializeField] private bool canKillPlayer = false; // If false, breaks machines, if true, kills player but can't break machines
+
     GameManager manager;
 
     public Vector2 startPos;
@@ -15,6 +19,11 @@ public class kid_movement : MonoBehaviour
         startPos = this.gameObject.transform.position;
 
         manager = UnityEngine.Object.FindAnyObjectByType<GameManager>();
+
+        if (canKillPlayer)
+        {
+            sp.color = new Color(184f/255f, 90f/255f, 166f/255f);
+        }
     }
 
     // Update is called once per frame
@@ -33,10 +42,14 @@ public class kid_movement : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.StartsWith("ArcadeMachine"))
+        if (collision.gameObject.name.StartsWith("ArcadeMachine") && !canKillPlayer)
         {
             ArcadeMachine machine = collision.gameObject.GetComponent<ArcadeMachine>();
             machine.DestroyMachine();
+        }
+        else if (collision.gameObject.name.StartsWith("Player") && canKillPlayer)
+        {
+            manager.GameOver();
         }
 
         //rb.linearVelocity = new Vector2(Random.Range(-5, 5), Random.Range(-5,5)).normalized * moveSpeed;        
