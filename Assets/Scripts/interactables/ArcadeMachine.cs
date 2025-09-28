@@ -3,7 +3,8 @@ using UnityEngine;
 public class ArcadeMachine : MonoBehaviour
 {
     private int brokenLevel = 0;
-    private SpriteRenderer sp;
+    //private SpriteRenderer sp;
+    Animator animator;
     [SerializeField] private AudioClip fixing;
     [SerializeField] private AudioClip destroyed;
     [SerializeField] private Sprite[] baseSprites;
@@ -17,11 +18,12 @@ public class ArcadeMachine : MonoBehaviour
     {
         manager = UnityEngine.Object.FindAnyObjectByType<GameManager>();
 
+        animator = GetComponent<Animator>();
         audiosource = GetComponent<AudioSource>();
 
-        sp = GetComponent<SpriteRenderer>();
+        //sp = GetComponent<SpriteRenderer>();
 
-        SelectCabinet();
+        animator.SetInteger("color", SelectCabinet());
     }
 
     public bool IsBroken() => brokenLevel > 0;
@@ -41,8 +43,8 @@ public class ArcadeMachine : MonoBehaviour
             if (brokenLevel == 0)
             {
                 manager.ChangeBrokenCount(-1);
-
-                SelectCabinet();
+                animator.SetBool("isBurning", false);
+                animator.SetInteger("color", SelectCabinet());
             }
         }
     }
@@ -51,6 +53,7 @@ public class ArcadeMachine : MonoBehaviour
     {
         if (!IsBroken())
         {
+            animator.SetBool("isBurning", true);
             //Audio for destroyed machine
             audiosource.clip = destroyed;
 
@@ -59,9 +62,12 @@ public class ArcadeMachine : MonoBehaviour
             brokenLevel = 5;
             manager.ChangeBrokenCount(1);
 
-            sp.sprite = brokenSprite;
+            //sp.sprite = brokenSprite;
         }
     }
 
-    private void SelectCabinet() => sp.sprite = baseSprites[Random.Range(0, baseSprites.Length)];
+    private int SelectCabinet(){
+      return Random.Range(0, 4);
+    }
+        //sp.sprite = baseSprites[Random.Range(0, baseSprites.Length)];
 }
