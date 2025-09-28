@@ -22,11 +22,12 @@ public class ArcadeMachine : MonoBehaviour
 
     public void FixUp()
     {
-
         if (brokenLevel > 0)
         {
-            //Sound effect for player fixing machine
+            // Sound effect for player fixing machine
             audiosource.clip = fixing;
+
+            manager.AddScore(150);
 
             audiosource.Play();
 

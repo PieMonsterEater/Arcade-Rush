@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private BoxCollider2D[] fixBoxes = null;
     [SerializeField] private AudioClip footsteps;
 
-    public Transform startPos;
+    public Vector2 startPos;
 
     private GameManager manager;
 
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
         manager = UnityEngine.Object.FindAnyObjectByType<GameManager>();
 
-        startPos = this.gameObject.transform;
+        startPos = this.gameObject.transform.position;
     }
 
     // Update is called once per frame

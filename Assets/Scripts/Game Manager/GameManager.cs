@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     private int numMachines = 0;
     private int numBrokenMachines = 0;
     private int score = 0;
+    [SerializeField] private float startTimeRemaining = 120;
     [SerializeField] private float timeRemaining = 120;
     private float roundStartTimer = 3;
     private float roundEndTimer = 3;
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
             isStarting = false;
             roundDisplay.gameObject.SetActive(false);
             roundStartTimer = 3;
-            timeRemaining = 20;
+            timeRemaining = startTimeRemaining;
             
             for (int i = 0; i < machineArray.Length / 3; i++)
             {
@@ -86,10 +87,10 @@ public class GameManager : MonoBehaviour
         if (roundEndTimer <= 0)
         {
             isEnding = false;
-            player.GetComponent<Rigidbody2D>().MovePosition(player.startPos.position);
+            player.gameObject.transform.position = player.startPos;
             foreach (kid_movement kid in kids)
             {
-                kid.gameObject.transform.position = kid.startPos.position;
+                kid.gameObject.transform.position = kid.startPos;
                 kid.UpdateSpeed(1);
             }
             Round++;

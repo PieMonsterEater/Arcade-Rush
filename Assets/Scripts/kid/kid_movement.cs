@@ -7,12 +7,12 @@ public class kid_movement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb = null;
     GameManager manager;
 
-    public Transform startPos;
+    public Vector2 startPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rb.linearVelocity = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)).normalized * moveSpeed;
-        startPos = this.gameObject.transform;
+        startPos = this.gameObject.transform.position;
 
         manager = UnityEngine.Object.FindAnyObjectByType<GameManager>();
     }
