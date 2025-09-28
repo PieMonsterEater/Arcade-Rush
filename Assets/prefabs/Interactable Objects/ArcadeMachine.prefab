@@ -236,3 +236,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenIndicator: {fileID: 936026873923267530}
+  fixing: {fileID: 8300000, guid: 56a01976092520c418b46f48d9049941, type: 3}
+  destroyed: {fileID: 8300000, guid: c5e04a1e4ba5487458cb2f0cbffef147, type: 3}
