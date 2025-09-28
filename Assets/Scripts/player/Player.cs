@@ -10,12 +10,17 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 5;
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private BoxCollider2D[] fixBoxes = null;
+    [SerializeField] private AudioClip footsteps;
+
+    private AudioSource audioSource;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
       animator = GetComponent<Animator>();
+
+      audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,9 +30,17 @@ public class Player : MonoBehaviour
         if (((moveDir.x <= 0.01f && moveDir.x >= -0.01f) || (moveDir.x >= 0.01f && moveDir.x <= -0.01f)) && (moveDir.y <= 0.01f && moveDir.y >= -0.01f) || (moveDir.y >= 0.01f && moveDir.y <= -0.01f))
         {
             isMoving = false;
+            
+            audioSource.clip = footsteps;
+
+            audioSource.Play();
         }
         else {
             isMoving = true;
+
+            //audioSource.clip = footsteps;
+
+            //audioSource.Play();
         }
        
         // Moves the player in the direction they are pressing the keys
