@@ -10,15 +10,6 @@ public class ArcadeMachine : MonoBehaviour
     void Awake()
     {
         manager = UnityEngine.Object.FindAnyObjectByType<GameManager>();
-
-        if (Random.Range(0, 2) == 1)
-        {
-            Debug.Log("I am a broken Arcade Machine!");
-            brokenLevel = 5;
-            brokenIndicator.SetActive(true);
-        }
-
-        manager.AddMachine(IsBroken());
     }
 
     public bool IsBroken() => brokenLevel > 0;
