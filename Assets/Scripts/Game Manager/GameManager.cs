@@ -6,17 +6,25 @@ public class GameManager : MonoBehaviour
     private int numMachines = 0;
     private int numBrokenMachines = 0;
     private int score = 0;
-    private float timeRemaining = 120;
+    [SerializeField] private float timeRemaining = 120;
     private float roundStartTimer = 3;
     private float roundEndTimer = 3;
     private int displayMinutes = 0;
     private int displaySeconds = 0;
+    [Header("Audio Stuffs")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip winSound;
+    [SerializeField] private AudioClip loseSound;
     public int Round { get; private set; }
 
-    public Player player;
+    [HideInInspector] public Player player;
+
+    [Header("Misc")]
     private kid_movement[] kids;
+    private ArcadeMachine[] machineArray;
     public bool isStarting { get; private set; }
     public bool isEnding { get; private set; }
+    public bool isOver { get; private set; }
 
     [SerializeField] TMP_Text timeDisplay;
     [SerializeField] TMP_Text scoreDisplay;
@@ -28,25 +36,18 @@ public class GameManager : MonoBehaviour
     {
         isStarting = true;
         isEnding = false;
+        isOver = false;
         Round = 1;
 
         displayMinutes = (int)(timeRemaining / 60);
         displaySeconds = (int)(timeRemaining % 60);
 
-        ArcadeMachine[] machineArray = UnityEngine.Object.FindObjectsByType<ArcadeMachine>(
+        machineArray = UnityEngine.Object.FindObjectsByType<ArcadeMachine>(
             FindObjectsInactive.Exclude,
             FindObjectsSortMode.None
         );
 
         numMachines = machineArray.Length;
-
-        for (int i = 0; i < machineArray.Length / 3; i++)
-        {
-            int toBreak = Random.Range(0, machineArray.Length);
-
-            if (!machineArray[toBreak].IsBroken()) machineArray[toBreak].DestroyMachine();
-            else i--;
-        }
 
         player = UnityEngine.Object.FindAnyObjectByType<Player>();
         kids = UnityEngine.Object.FindObjectsByType<kid_movement>(
@@ -58,14 +59,23 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         roundStartTimer -= Time.deltaTime;
-        roundDisplay.SetActive(true);
+        roundDisplay.gameObject.SetActive(true);
         roundDisplay.text = "Round " + Round;
 
         if (roundStartTimer <= 0)
         {
             isStarting = false;
-            roundDisplay.SetActive(false);
+            roundDisplay.gameObject.SetActive(false);
             roundStartTimer = 3;
+            timeRemaining = 20;
+            
+            for (int i = 0; i < machineArray.Length / 3; i++)
+            {
+                int toBreak = Random.Range(0, machineArray.Length);
+
+                if (!machineArray[toBreak].IsBroken()) machineArray[toBreak].DestroyMachine();
+                else i--;
+            }
         }
     }
 
@@ -76,9 +86,10 @@ public class GameManager : MonoBehaviour
         if (roundEndTimer <= 0)
         {
             isEnding = false;
+            player.GetComponent<Rigidbody2D>().MovePosition(player.startPos.position);
             foreach (kid_movement kid in kids)
             {
-                kid.gameObject.transform = kid.startPos;
+                kid.gameObject.transform.position = kid.startPos.position;
                 kid.UpdateSpeed(1);
             }
             Round++;
@@ -89,15 +100,26 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        isOver = true;
+        isEnding = true;
+
         roundDisplay.text = "Game Over";
-        roundDisplay.SetActive(true);
+        roundDisplay.gameObject.SetActive(true);
+
+        audioSource.clip = loseSound;
+        audioSource.Play();
     }
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (timeRemaining <= 0) return;
+        if (isOver) return;
+
+        if (isStarting) { StartRound(); return; }
+        if (isEnding) { EndRound(); return; }
+
+        if (timeRemaining <= 0) GameOver();
 
         timeRemaining -= Time.deltaTime;
 
@@ -124,6 +146,8 @@ public class GameManager : MonoBehaviour
         if (numBrokenMachines <= 0)
         {
             isEnding = true;
+            audioSource.clip = winSound;
+            audioSource.Play();
         }
     }
 

@@ -12,20 +12,30 @@ public class Player : MonoBehaviour
     [SerializeField] private BoxCollider2D[] fixBoxes = null;
     [SerializeField] private AudioClip footsteps;
 
+    public Transform startPos;
+
+    private GameManager manager;
+
     private AudioSource audioSource;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
-      audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+
+        manager = UnityEngine.Object.FindAnyObjectByType<GameManager>();
+
+        startPos = this.gameObject.transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (manager.isStarting || manager.isEnding) return;
+
         animator.SetBool("Moving", isMoving);
         if (((moveDir.x <= 0.01f && moveDir.x >= -0.01f) || (moveDir.x >= 0.01f && moveDir.x <= -0.01f)) && (moveDir.y <= 0.01f && moveDir.y >= -0.01f) || (moveDir.y >= 0.01f && moveDir.y <= -0.01f))
         {

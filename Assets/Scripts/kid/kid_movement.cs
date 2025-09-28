@@ -5,21 +5,26 @@ public class kid_movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 6;
     [SerializeField] private Rigidbody2D rb = null;
+    GameManager manager;
 
-    private Transform startPos;
+    public Transform startPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rb.linearVelocity = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)).normalized * moveSpeed;
         startPos = this.gameObject.transform;
+
+        manager = UnityEngine.Object.FindAnyObjectByType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (manager.isStarting || manager.isEnding) rb.linearVelocity = new Vector2(0, 0);
+
         if (Random.Range(1, 100) == 99)
         {
-            rb.linearVelocity = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)).normalized * moveSpeed;
+            if (!manager.isStarting || !manager.isEnding) rb.linearVelocity = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)).normalized * moveSpeed;
         }
 
         /*var unispeed = new Vector2(Random.Range(0, 5), Random.Range(0,5)).Normalize();*/
