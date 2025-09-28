@@ -236,9 +236,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f82d2d9b5d64949b5e9329761bade7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brokenIndicator: {fileID: 936026873923267530}
   fixing: {fileID: 8300000, guid: 56a01976092520c418b46f48d9049941, type: 3}
   destroyed: {fileID: 8300000, guid: c5e04a1e4ba5487458cb2f0cbffef147, type: 3}
+  baseSprites:
+  - {fileID: 225299385623571537, guid: 95ccc63b0b50f7240a012b229f83940d, type: 3}
+  - {fileID: -7599939699453339567, guid: 21d2765764dbe5c4dbd9ff45866109b6, type: 3}
+  - {fileID: 710110735735528552, guid: be51e0139502b7140b0c60adf27f4a31, type: 3}
+  - {fileID: 4509482211960917842, guid: d18412ab638c29643b887fb88c8fb6e3, type: 3}
+  brokenSprite: {fileID: 5993059421651291976, guid: 1a312325216445f41bdd86668881ef63, type: 3}
 --- !u!82 &-8749918753271915596
 AudioSource:
   m_ObjectHideFlags: 0

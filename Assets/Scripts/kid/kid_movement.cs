@@ -8,6 +8,7 @@ public class kid_movement : MonoBehaviour
     [SerializeField] private SpriteRenderer sp;
 
     [SerializeField] private bool canKillPlayer = false; // If false, breaks machines, if true, kills player but can't break machines
+    [SerializeField] private Sprite[] sprites;
 
     GameManager manager;
 
@@ -22,8 +23,9 @@ public class kid_movement : MonoBehaviour
 
         if (canKillPlayer)
         {
-            sp.color = new Color(184f/255f, 90f/255f, 166f/255f);
+            sp.sprite = sprites[1];
         }
+        else sp.sprite = sprites[0];
     }
 
     // Update is called once per frame

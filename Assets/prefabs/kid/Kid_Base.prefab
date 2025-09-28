@@ -124,6 +124,9 @@ MonoBehaviour:
   rb: {fileID: 4582053394185545972}
   sp: {fileID: 7602944329365841737}
   canKillPlayer: 0
+  sprites:
+  - {fileID: -2439426833033000498, guid: a027cc5137d9fcd45a5685926890f98f, type: 3}
+  - {fileID: 2657355541188840242, guid: 7dcb8884d114616428b3958e68ac6530, type: 3}
   startPos: {x: 0, y: 0}
 --- !u!1 &8473175787910545612
 GameObject:
@@ -202,7 +205,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7207546, g: 0.35221782, b: 0.35221782, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
