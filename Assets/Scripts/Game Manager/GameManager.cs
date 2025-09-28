@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     [SerializeField] private float startTimeRemaining = 120;
     [SerializeField] private float timeRemaining = 120;
+
+    [SerializeField] private float gameOverTime = 8;
     private float roundStartTimer = 3;
     private float roundEndTimer = 3;
     private int displayMinutes = 0;
@@ -115,7 +118,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isOver) return;
+        if (isOver)
+        {
+            gameOverTime -= Time.deltaTime;
+
+            if (gameOverTime <= 0)
+            { 
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
+            return;
+        }
 
         if (isStarting) { StartRound(); return; }
         if (isEnding) { EndRound(); return; }
