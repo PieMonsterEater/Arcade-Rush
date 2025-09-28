@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/OldMazeScene.unity
     guid: 2657fa064ef376645aeec35720e4be04
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MazeScene.unity
     guid: 940ad09fda9cf8c46a11c376681a7d7a
+  - enabled: 1
+    path: Assets/Scenes/MazeScene 3.unity
+    guid: 4070e5840bd5bea46b5186cef59076ec
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
