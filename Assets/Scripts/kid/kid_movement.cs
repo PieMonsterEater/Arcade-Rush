@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class kid_movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 6;
+    [SerializeField] private float baseCoolDown = 2.5f;
+    private float currentCoolDown = 0;
     [SerializeField] private Rigidbody2D rb = null;
     [SerializeField] private SpriteRenderer sp;
 
@@ -38,16 +40,21 @@ public class kid_movement : MonoBehaviour
             if (!manager.isStarting || !manager.isEnding) rb.linearVelocity = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)).normalized * moveSpeed;
         }
 
+        if (currentCoolDown > 0) currentCoolDown -= Time.deltaTime;
+
         /*var unispeed = new Vector2(Random.Range(0, 5), Random.Range(0,5)).Normalize();*/
 
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if (currentCoolDown > 0) return;
+
         if (collision.gameObject.name.StartsWith("ArcadeMachine") && !canKillPlayer)
         {
             ArcadeMachine machine = collision.gameObject.GetComponent<ArcadeMachine>();
             machine.DestroyMachine();
+            currentCoolDown = baseCoolDown;
         }
         else if (collision.gameObject.name.StartsWith("Player") && canKillPlayer)
         {
